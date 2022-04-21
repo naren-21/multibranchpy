@@ -4,18 +4,18 @@ pipeline {
     stages {
         stage('checkout') {
             steps {
-                checkout([$class: 'GitSCM', branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[credentialsId: 'test123', url: 'https://github.com/naren-21/multibranchpy.git']]])
+                checkout([$class: 'GitSCM', branches: [[name: '*/python']], extensions: [], userRemoteConfigs: [[credentialsId: 'test123', url: 'https://github.com/naren-21/multibranchpy.git']]])
             }
         }
         stage('build') {
             steps {
-                git branch: 'main', credentialsId: 'test123', url: 'https://github.com/naren-21/multibranchpy.git'
+                git branch: 'python', credentialsId: 'test123', url: 'https://github.com/naren-21/multibranchpy.git'
                 sh 'python3 square.py'
             }
         }
-        stage('print') {
+        stage('thanks') {
             steps {
-                echo "output printed"
+                echo "thank you"
             }
         )   
     }
