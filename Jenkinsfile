@@ -10,7 +10,7 @@ pipeline {
         stage('build') {
             steps {
                 git branch: 'python', credentialsId: 'test123', url: 'https://github.com/naren-21/multibranchpy.git'
-                sh 'python3 square.py'
+                sh 'python3 rt.py'
             }
         }
         stage('thanks') {
